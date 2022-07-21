@@ -1,0 +1,28 @@
+@import "../../variables.scss";
+
+.team__header {
+  margin-bottom: 1em;
+}
+
+.team__list {
+  padding: 1em;
+  border: 2px solid $color-secondary;
+  margin-bottom: 2vw;
+  border-radius: 4px;
+  list-style: none;
+  overflow-y: scroll;
+  max-height: 250px;
+  li {
+    padding: 0.5em;
+    border-radius: 4px;
+    background-color: lighten($off-black, 10%);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .team__list {
+    li {
+      background-color: $off-white;
+    }
+  }
+}

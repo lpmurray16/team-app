@@ -7,10 +7,15 @@
   padding: 2em;
   margin: 1em 0;
   &__title {
-    font-size: clamp(1.75rem, 5vw, 3.75rem);
+    font-size: clamp(1.9rem, 5vw, 3.75rem);
     font-weight: bold;
-    margin-bottom: 2vw;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-family: "Tahoma", sans-serif;
+    text-shadow: 2px 2px 0px lighten($off-black, 10%),
+      4px 4px 0px $color-primary, 6px 6px 0px $color-secondary;
   }
+
   &__number_of_teams,
   &__input {
     display: flex;
@@ -26,19 +31,61 @@
     font-size: 0.9rem;
     margin-top: 0.5rem;
   }
+  .helpMessage {
+    color: lighten($off-black, 60%);
+    font-style: italic;
+    font-size: 0.9rem;
+  }
+
+  &__clear {
+    display: flex;
+    justify-content: center;
+    margin-top: 2em;
+  }
+
+  .clear {
+    background-color: #b83f3f;
+    &:hover {
+      background-color: darken(#b83f3f, 10%);
+    }
+  }
+
+  .team__header {
+    margin-bottom: 1em;
+  }
+
   .team__list {
     padding: 1em;
-    border: 2px solid $off-black;
+    border: 2px solid $color-secondary;
     margin-bottom: 2vw;
     border-radius: 4px;
     list-style: none;
+    overflow-y: scroll;
+    max-height: 250px;
     li {
       padding: 0.5em;
       border-radius: 4px;
       background-color: lighten($off-black, 10%);
-      &:hover {
-        background-color: lighten($off-black, 20%);
-        cursor: pointer;
+    }
+  }
+
+  @media (prefers-color-scheme: light) {
+    background-color: $off-white;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    &__title {
+      color: $color-primary;
+      text-shadow: 1px 0 0 $off-black, 0 -1px 0 $off-black, 0 1px 0 $off-black,
+        -1px 0 0 $off-black;
+    }
+    input {
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .helpMessage {
+      color: lighten($off-black, 40%);
+    }
+    .team__list {
+      li {
+        background-color: $off-white;
       }
     }
   }

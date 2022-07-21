@@ -2,11 +2,16 @@
   <div class="card">
     <h1 class="card__title">Team Generator</h1>
     <ul class="team__list">
+      <p *ngIf="!members.length" class="helpMessage">
+        Enter a name below to add members to this list.
+      </p>
       <li *ngFor="let member of members" class="team__member">
         <p class="team__member-name">{{ member }}</p>
       </li>
     </ul>
+
     <div class="card__input">
+      <h3>Add a Person</h3>
       <input
         #addMemberInput
         type="text"
@@ -20,10 +25,33 @@
     </div>
 
     <div class="card__number_of_teams">
-      <input type="number" placeholder="# of teams" />
-      <button class="input__button">Generate</button>
+      <h3>Generate Teams</h3>
+      <input
+        #numOfTeamsInput
+        type="number"
+        max="100"
+        min="0"
+        placeholder="# of teams to generate"
+        (input)="onNumOfTeamsInput(numOfTeamsInput.value)"
+        (keydown.enter)="generateTeams()"
+        [value]="numOfTeams"
+      />
+      <button class="input__button" (click)="generateTeams()">Generate</button>
+    </div>
+
+    <div class="card__clear">
+      <button class="input__button clear" (click)="clear()">Clear All</button>
     </div>
 
     <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+  </div>
+
+  <div *ngIf="teams.length" class="card teams__container">
+    <app-team
+      *ngFor="let team of teams; let i = index"
+      [team]="team"
+      [index]="i"
+    >
+    </app-team>
   </div>
 </div>
