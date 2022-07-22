@@ -1,0 +1,1 @@
+{"version":3,"sources":["team.component.scss","team.component.css","../../_variables.scss"],"names":[],"mappings":"AAEA;EACE,kBAAA;ACDF;;ADIA;EACE,YAAA;EACA,yBAAA;EACA,kBAAA;EACA,kBAAA;EACA,gBAAA;EACA,kBAAA;EACA,iBAAA;ACDF;ADEE;EACE,cAAA;EACA,kBAAA;EACA,yBAAA;ACAJ;;ADIA;EAEI;IACE,yBErBM;EDmBV;AACF","file":"team.component.css"}
